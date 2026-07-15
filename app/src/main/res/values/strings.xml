@@ -6,4 +6,5 @@
     <string name="home_button">Back Home</string>
     <string name="tag_line">Get 6 chances to guess a 5 letter word</string>
     <string name="congratulations">Congratulations!</string>
+    <string name="commiseration">Try again tomorrow!</string>
 </resources>
