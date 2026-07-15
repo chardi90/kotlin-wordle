@@ -4,16 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlinwordle.ui.theme.KotlinWordleTheme
+import org.w3c.dom.Text
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +57,15 @@ fun App( modifier: Modifier = Modifier) {
                 onReturn = { navController.navigate("home_page") }
             )
         }
+    }
+}
+
+@Composable
+fun HomePage() {
+    Column() {
+        Text(text = stringResource(R.string.title))
+        Text(text = stringResource(R.string.tag_line))
+        Button(onClick = {}) { Text(text = stringResource(R.string.play_button)) }
     }
 }
 
