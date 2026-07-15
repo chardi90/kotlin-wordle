@@ -69,6 +69,24 @@ fun HomePage() {
     }
 }
 
+@Composable
+fun PuzzlePage() {
+    Column() {
+        //Add in grid layout composable for word guesses
+        Button(onClick = {}) { Text(text = stringResource(R.string.submit_button)) }
+    }
+}
+
+@Composable
+fun ResultsPage() {
+    Column() {
+        Text(text = "Wordle in 3!")
+        Text(text = stringResource(R.string.congratulations))
+        Text(text = stringResource(R.string.commiseration))
+        Button(onClick = {}) { Text(text = stringResource(R.string.home_button)) }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
