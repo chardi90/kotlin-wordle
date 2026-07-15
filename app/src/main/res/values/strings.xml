@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Kotlin Wordle</string>
+    <string name="title">Wordle</string>
+    <string name="submit_button">Submit</string>
+    <string name="play_button">Play</string>
+    <string name="home_button">Back Home</string>
+    <string name="tag_line">Get 6 chances to guess a 5 letter word</string>
+    <string name="congratulations">Congratulations!</string>
 </resources>
