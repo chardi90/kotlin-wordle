@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.kotlinwordle.ui.theme.KotlinWordleTheme
 
 class MainActivity : ComponentActivity() {
@@ -31,10 +33,27 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App( modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = "home_screen"
+    ) {
+        composable(route = "home_screen") {
+            HomePage(
+                onPlay = { navController.navigate("puzzle_page") }
+            )
+        }
+        composable(route = "puzzle_screen") {
+            PuzzlePage(
+                onFinish = { navController.navigate("results_page") }
+            )
+        }
+        composable(route = "results_screen") {
+            ResultsPage(
+                onReturn = { navController.navigate("home_page") }
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)
