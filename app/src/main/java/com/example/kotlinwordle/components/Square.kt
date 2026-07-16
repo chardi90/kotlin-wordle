@@ -1,10 +1,12 @@
 package com.example.kotlinwordle.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 
@@ -15,7 +17,7 @@ fun Square(
 ) {
     val maxLength = 1
     var input = viewModel.letterInput
-    Box() {
+    Box(Modifier.background(Color.Cyan)) {
         TextField(
             value = input,
             singleLine = true,
