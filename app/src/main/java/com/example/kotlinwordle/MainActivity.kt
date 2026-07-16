@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlinwordle.components.GridRow
+import com.example.kotlinwordle.components.WordleGrid
 import com.example.kotlinwordle.components.WordleViewModel
 import com.example.kotlinwordle.screens.HomePage
 import com.example.kotlinwordle.screens.PuzzlePage
@@ -66,6 +67,6 @@ fun App(viewModel: WordleViewModel = viewModel()) {
 @Composable
 fun WordlePreview() {
     KotlinWordleTheme {
-        GridRow(viewModel = viewModel(), modifier = Modifier)
+        WordleGrid(viewModel = viewModel(), modifier = Modifier)
     }
 }

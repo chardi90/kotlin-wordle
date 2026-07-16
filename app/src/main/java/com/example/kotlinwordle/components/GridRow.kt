@@ -17,94 +17,15 @@ fun GridRow(
     viewModel: WordleViewModel,
     modifier: Modifier = Modifier
 ) {
-    val padding = 16.dp
-
-    Column() {
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = modifier.fillMaxWidth()
-        ) {
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-            Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        }
-
-        Spacer(Modifier.size(padding))
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceEvenly,
+        modifier = modifier.fillMaxWidth()
+    ) {
+        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
+        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
+        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
+        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
+        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
     }
 }
