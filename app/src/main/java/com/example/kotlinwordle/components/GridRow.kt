@@ -17,10 +17,30 @@ fun GridRow(
         horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier.fillMaxWidth()
     ) {
-        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
-        Square(viewModel = viewModel, modifier = Modifier.weight(1f))
+        Square(
+            value = viewModel.letterInput,
+            onInputChange = { viewModel.onInputChange(it) },
+            modifier = Modifier.weight(1f)
+        )
+        Square(
+            value = viewModel.letterInput,
+            onInputChange = { viewModel.onInputChange(it) },
+            modifier = Modifier.weight(1f)
+        )
+        Square(
+            value = viewModel.letterInput,
+            onInputChange = { viewModel.onInputChange(it) },
+            modifier = Modifier.weight(1f)
+        )
+        Square(
+            value = viewModel.letterInput,
+            onInputChange = { viewModel.onInputChange(it) },
+            modifier = Modifier.weight(1f)
+        )
+        Square(
+            value = viewModel.letterInput,
+            onInputChange = { viewModel.onInputChange(it) },
+            modifier = Modifier.weight(1f)
+        )
     }
 }

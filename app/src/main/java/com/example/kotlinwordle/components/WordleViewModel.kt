@@ -12,6 +12,7 @@ class WordleViewModel: ViewModel() {
 
     var letterInput by mutableStateOf("")
         private set
+
     var playIsClicked by mutableStateOf(false)
         private set
 
@@ -21,12 +22,23 @@ class WordleViewModel: ViewModel() {
     var homeIsClicked by mutableStateOf(false)
         private set
 
+    fun onInputChange(value: String) {
+        val maxLength = 1
+        if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
+                letterInput = value
+    }
+
     fun playGame() {
         playIsClicked = !playIsClicked
     }
 
     fun submitRow() {
-        submitIsClicked = !submitIsClicked
+        if (rowIndex < 6) {
+            rowIndex += 1
+            submitIsClicked = !submitIsClicked
+        } else {
+            //finishedIsClicked
+        }
     }
 
     fun returnHome() {
