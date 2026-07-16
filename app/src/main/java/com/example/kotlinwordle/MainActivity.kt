@@ -17,6 +17,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kotlinwordle.components.WordleViewModel
 import com.example.kotlinwordle.ui.theme.KotlinWordleTheme
 
 class MainActivity : ComponentActivity() {
