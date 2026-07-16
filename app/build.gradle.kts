@@ -6,7 +6,7 @@ plugins {
 android {
     namespace = "com.example.kotlinwordle"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
@@ -14,7 +14,8 @@ android {
     defaultConfig {
         applicationId = "com.example.kotlinwordle"
         minSdk = 24
-        targetSdk = 36
+        //noinspection EditedTargetSdkVersion
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 

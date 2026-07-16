@@ -1,4 +1,4 @@
-package com.example.kotlinwordle
+package com.example.kotlinwordle.components
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -10,6 +10,8 @@ class WordleViewModel: ViewModel() {
     var rowIndex by mutableIntStateOf(0)
         private set
 
+    var letterInput by mutableStateOf("")
+        private set
     var playIsClicked by mutableStateOf(false)
         private set
 
