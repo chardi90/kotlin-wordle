@@ -5,8 +5,11 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.example.kotlinwordle.components.Word
 
 class WordleViewModel: ViewModel() {
+    var word by mutableStateOf()
+        private set
     var rowIndex by mutableIntStateOf(0)
         private set
 
@@ -22,6 +25,10 @@ class WordleViewModel: ViewModel() {
     var homeIsClicked by mutableStateOf(false)
         private set
 
+    fun setWord() {
+        val num = Math.random().toInt()
+        word = Words[num]
+    }
     fun onInputChange(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)

@@ -20,7 +20,7 @@ fun PuzzlePage(
     onFinish: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
+    viewModel.setWord()
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
         WordleGrid(viewModel = viewModel, modifier = modifier)

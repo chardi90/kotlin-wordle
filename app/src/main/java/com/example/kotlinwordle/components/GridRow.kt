@@ -12,6 +12,7 @@ fun GridRow(
     viewModel: WordleViewModel,
     modifier: Modifier = Modifier
 ) {
+    var wordToday = viewModel.word
     Row(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceEvenly,
@@ -42,5 +43,10 @@ fun GridRow(
             onInputChange = { viewModel.onInputChange(it) },
             modifier = Modifier.weight(1f)
         )
+    }
+    if (viewModel.submitIsClicked) {
+        // if value1 = wordletter 1? = turn green
+        // else if value1 exist in the word? = turn yellow
+        // else turn dark grey/ stays same
     }
 }
