@@ -10,20 +10,21 @@ import androidx.compose.ui.text.input.KeyboardType
 
 @Composable
 fun Square(
+    viewModel: WordleViewModel,
     modifier: Modifier = Modifier
 ) {
     val maxLength = 1
-    var letterInput = ""
+    var input = viewModel.letterInput
     Box() {
         TextField(
-            value = letterInput,
+            value = input,
             singleLine = true,
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Text,
                 capitalization = KeyboardCapitalization.Characters),
             onValueChange = { newValue ->
                 if (newValue.isEmpty() || newValue.matches(Regex("^[A-Z]+$")) || newValue.length == maxLength)
-                    letterInput = newValue
+                    input = newValue
             },
             modifier = modifier
         )
