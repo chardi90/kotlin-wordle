@@ -13,8 +13,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.kotlinwordle.components.GridRow
-import com.example.kotlinwordle.components.WordleGrid
 import com.example.kotlinwordle.components.WordleViewModel
 import com.example.kotlinwordle.screens.HomePage
 import com.example.kotlinwordle.screens.PuzzlePage
@@ -28,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             KotlinWordleTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    App()
+                    App(modifier = Modifier)
                 }
             }
         }
@@ -36,11 +34,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun App(viewModel: WordleViewModel = viewModel()) {
+fun App(viewModel: WordleViewModel = viewModel(), modifier: Modifier) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = "home_screen"
+        startDestination = "home_screen",
+        modifier = modifier
     ) {
         composable(route = "home_screen") {
             HomePage(
@@ -51,7 +50,8 @@ fun App(viewModel: WordleViewModel = viewModel()) {
         composable(route = "puzzle_screen") {
             PuzzlePage(
                 viewModel = viewModel,
-                onFinish = { navController.navigate("results_screen") }
+                onFinish = { navController.navigate("results_screen")
+                }
             )
         }
         composable(route = "results_screen") {
@@ -67,6 +67,9 @@ fun App(viewModel: WordleViewModel = viewModel()) {
 @Composable
 fun WordlePreview() {
     KotlinWordleTheme {
-        WordleGrid(viewModel = viewModel(), modifier = Modifier)
+        PuzzlePage(
+            viewModel = viewModel(),
+            onFinish = {},
+            modifier = Modifier)
     }
 }
