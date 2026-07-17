@@ -22,8 +22,8 @@ fun WordleGrid(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            repeat(6) {
-                GridRow(viewModel = viewModel, modifier = Modifier)
+            repeat( 6 ) { index ->
+                GridRow(viewModel = viewModel, rowIndex = index, modifier = Modifier)
             }
         }
     }

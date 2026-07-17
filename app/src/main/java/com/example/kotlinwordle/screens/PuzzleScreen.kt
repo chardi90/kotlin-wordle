@@ -2,11 +2,8 @@ package com.example.kotlinwordle.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -27,6 +24,7 @@ fun PuzzlePage(
     modifier: Modifier = Modifier
 ) {
     viewModel.setWord()
+    val wordToday = stringResource(id = viewModel.word.word)
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -39,8 +37,10 @@ fun PuzzlePage(
 
         Button(
             onClick = {
-                viewModel.submitRow()
-                onFinish()
+                viewModel.submitRow(wordToday)
+                if (viewModel.finalScore > 0) {
+                    onFinish()
+                }
             },
             modifier = Modifier.padding(top = 30.dp),
             colors = ButtonDefaults.buttonColors(
