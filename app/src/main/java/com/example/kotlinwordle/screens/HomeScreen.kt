@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -18,9 +19,12 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.kotlinwordle.R
 import com.example.kotlinwordle.components.WordleViewModel
+import com.example.kotlinwordle.ui.theme.StoneWhite
 
 @Composable
 fun HomePage(viewModel: WordleViewModel, onPlay: () -> Unit) {
@@ -41,26 +45,34 @@ fun HomePage(viewModel: WordleViewModel, onPlay: () -> Unit) {
         ) {
             Text(
                 text = stringResource(R.string.title),
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onBackground
+                style = MaterialTheme.typography.displayLarge,
+                fontWeight = FontWeight.Bold,
+                color = StoneWhite
             )
             Text(
                 text = stringResource(R.string.tag_line),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.padding(top = 8.dp, bottom = 32.dp)
+                fontWeight = FontWeight.SemiBold,
+                color = StoneWhite,
+                modifier = Modifier.padding(top = 8.dp, bottom = 100.dp)
             )
             Button(
                 onClick = {
                     viewModel.playGame()
                     onPlay()
                 },
+                modifier = Modifier
+                    .fillMaxWidth(0.5f)
+                    .height(60.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     contentColor = MaterialTheme.colorScheme.onPrimary
                 )
             ) {
-                Text(text = stringResource(R.string.play_button))
+                Text(
+                    text = stringResource(R.string.play_button),
+                    fontSize = 22.sp
+                )
             }
         }
     }
