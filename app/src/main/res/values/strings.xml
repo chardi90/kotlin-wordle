@@ -7,4 +7,8 @@
     <string name="tag_line">Get 6 chances to guess a 5 letter word</string>
     <string name="congratulations">Congratulations!</string>
     <string name="commiseration">Try again tomorrow!</string>
+    <string name="word_1">Heart</string>
+    <string name="word_2">Brick</string>
+    <string name="word_3">Style</string>
+    <string name="word_4">Chair</string>
 </resources>
