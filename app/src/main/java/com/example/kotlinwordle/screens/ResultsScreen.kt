@@ -33,6 +33,14 @@ fun ResultsPage(viewModel: WordleViewModel, onReturn: () -> Unit) {
             color = MaterialTheme.colorScheme.onBackground,
             modifier = Modifier.padding(bottom = 32.dp)
         )
+        if (viewModel.hasWon) {
+            Text(
+                text = "Wordle in $viewModel.finalScore guesses",
+                style = MaterialTheme . typography . headlineLarge,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = Modifier.padding(bottom = 32.dp)
+            )
+        }
         Button(
             onClick = {
                 viewModel.returnHome()
