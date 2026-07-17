@@ -1,9 +1,15 @@
 package com.example.kotlinwordle.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,16 +27,27 @@ fun PuzzlePage(
     modifier: Modifier = Modifier
 ) {
     viewModel.setWord()
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
 
         WordleGrid(viewModel = viewModel, modifier = modifier)
 
-        Spacer(Modifier.size(30.dp))
-
-        Button(onClick = {
-            viewModel.submitRow()
-            onFinish()
-        }) {
+        Button(
+            onClick = {
+                viewModel.submitRow()
+                onFinish()
+            },
+            modifier = Modifier.padding(top = 30.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary
+            )
+        ) {
             Text(text = stringResource(R.string.submit_button))
         }
     }

@@ -6,9 +6,11 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -17,11 +19,12 @@ import androidx.compose.ui.unit.dp
 fun Square(
     value: String,
     onInputChange: (String) -> Unit,
+    textColor: Color = Color.Black,
     modifier: Modifier = Modifier
 ) {
     Box(modifier
         .aspectRatio(1f)
-        .padding(2.dp)
+        .padding(8.dp)
     ) {
         TextField(
             value = value,
@@ -30,8 +33,16 @@ fun Square(
                 keyboardType = KeyboardType.Text,
                 capitalization = KeyboardCapitalization.Characters),
             onValueChange = onInputChange,
+            textStyle = TextStyle(color = textColor),
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Color.Transparent,
+                unfocusedContainerColor = Color.Transparent,
+                disabledContainerColor = Color.Transparent,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                cursorColor = textColor
+            ),
             modifier = Modifier
-                .background(color = Color.Gray)
         )
     }
 }
