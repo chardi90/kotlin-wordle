@@ -12,6 +12,11 @@ class WordleViewModel: ViewModel() {
     var rowIndex by mutableIntStateOf(0)
         private set
 
+    var finalScore by mutableIntStateOf(0)
+        private set
+
+    var hasWon by mutableStateOf(false)
+        private set
     var letterInputOne by mutableStateOf("")
         private set
     var letterInputTwo by mutableStateOf("")
@@ -71,7 +76,16 @@ class WordleViewModel: ViewModel() {
             rowIndex += 1
             submitIsClicked = !submitIsClicked
         } else {
-            //finishedIsClicked
+            rowIndex += 1
+            submitIsClicked = !submitIsClicked
+            finalScore = rowIndex
+            checkHasWon()
+        }
+    }
+
+    fun checkHasWon() {
+        if (finalScore <= 6) {
+            hasWon = true
         }
     }
 

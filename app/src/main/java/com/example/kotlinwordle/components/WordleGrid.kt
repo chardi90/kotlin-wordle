@@ -22,7 +22,7 @@ fun WordleGrid(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            repeat(6) {
+            repeat( 6 ) {
                 GridRow(viewModel = viewModel, modifier = Modifier)
             }
         }

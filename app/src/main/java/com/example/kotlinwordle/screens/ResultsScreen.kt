@@ -18,8 +18,6 @@ import com.example.kotlinwordle.components.WordleViewModel
 
 @Composable
 fun ResultsPage(viewModel: WordleViewModel, onReturn: () -> Unit) {
-    val hasWon = true /* we need to replace this with the win/lose logic from viewModel */
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -28,7 +26,7 @@ fun ResultsPage(viewModel: WordleViewModel, onReturn: () -> Unit) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = if (hasWon) stringResource(R.string.congratulations)
+            text = if (viewModel.hasWon) stringResource(R.string.congratulations)
                    else stringResource(R.string.commiseration),
 
             style = MaterialTheme.typography.headlineLarge,
