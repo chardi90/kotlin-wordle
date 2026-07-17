@@ -1,6 +1,6 @@
 package com.example.kotlinwordle.components
 
-import androidx.compose.foundation.background
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
@@ -20,7 +20,7 @@ fun Square(
     value: String,
     onInputChange: (String) -> Unit,
     textColor: Color = Color.Black,
-    modifier: Modifier = Modifier
+    @SuppressLint("ModifierParameter") modifier: Modifier = Modifier
 ) {
     Box(modifier
         .aspectRatio(1f)

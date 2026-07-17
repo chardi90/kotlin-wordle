@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.kotlinwordle.components.Word
 
 class WordleViewModel: ViewModel() {
     var word by mutableStateOf(Words[0])
@@ -13,15 +12,15 @@ class WordleViewModel: ViewModel() {
     var rowIndex by mutableIntStateOf(0)
         private set
 
-    var letterInput_1 by mutableStateOf("")
+    var letterInputOne by mutableStateOf("")
         private set
-    var letterInput_2 by mutableStateOf("")
+    var letterInputTwo by mutableStateOf("")
         private set
-    var letterInput_3 by mutableStateOf("")
+    var letterInputThree by mutableStateOf("")
         private set
-    var letterInput_4 by mutableStateOf("")
+    var letterInputFour by mutableStateOf("")
         private set
-    var letterInput_5 by mutableStateOf("")
+    var letterInputFive by mutableStateOf("")
         private set
 
     var playIsClicked by mutableStateOf(false)
@@ -37,30 +36,30 @@ class WordleViewModel: ViewModel() {
         val num = Words.indices.random()
         word = Words[num]
     }
-    fun onInputChange_1(value: String) {
+    fun onInputChangeOne(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
-                letterInput_1 = value
+                letterInputOne = value
     }
-    fun onInputChange_2(value: String) {
+    fun onInputChangeTwo(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
-                letterInput_2 = value
+                letterInputTwo = value
     }
-    fun onInputChange_3(value: String) {
+    fun onInputChangeThree(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
-                letterInput_3 = value
+                letterInputThree = value
     }
-    fun onInputChange_4(value: String) {
+    fun onInputChangeFour(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
-                letterInput_4 = value
+                letterInputFour = value
     }
-    fun onInputChange_5(value: String) {
+    fun onInputChangeFive(value: String) {
         val maxLength = 1
         if (value.isEmpty() || value.matches(Regex("^[A-Z]+$")) || value.length == maxLength)
-                letterInput_5 = value
+                letterInputFive = value
     }
 
     fun playGame() {

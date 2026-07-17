@@ -41,28 +41,28 @@ fun GridRow(
 
     if (viewModel.submitIsClicked) {
         backgroundOne = when {
-            viewModel.letterInput_1 == wordToday[0].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInput_1) -> PresentYellow
+            viewModel.letterInputOne == wordToday[0].toString() -> CorrectGreen
+            wordToday.contains(viewModel.letterInputOne) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundTwo = when {
-            viewModel.letterInput_2 == wordToday[1].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInput_2) -> PresentYellow
+            viewModel.letterInputTwo == wordToday[1].toString() -> CorrectGreen
+            wordToday.contains(viewModel.letterInputTwo) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundThree = when {
-            viewModel.letterInput_3 == wordToday[2].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInput_3) -> PresentYellow
+            viewModel.letterInputThree == wordToday[2].toString() -> CorrectGreen
+            wordToday.contains(viewModel.letterInputThree) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundFour = when {
-            viewModel.letterInput_4 == wordToday[3].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInput_4) -> PresentYellow
+            viewModel.letterInputFour == wordToday[3].toString() -> CorrectGreen
+            wordToday.contains(viewModel.letterInputFour) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundFive = when {
-            viewModel.letterInput_5 == wordToday[4].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInput_5) -> PresentYellow
+            viewModel.letterInputFive == wordToday[4].toString() -> CorrectGreen
+            wordToday.contains(viewModel.letterInputFive) -> PresentYellow
             else -> AbsentGrey
         }
 
@@ -79,8 +79,8 @@ fun GridRow(
         modifier = modifier.fillMaxWidth()
     ) {
         Square(
-            value = viewModel.letterInput_1,
-            onInputChange = { viewModel.onInputChange_1(it) },
+            value = viewModel.letterInputOne,
+            onInputChange = { viewModel.onInputChangeOne(it) },
             textColor = textColorOne,
             modifier = Modifier
                 .weight(1f)
@@ -89,8 +89,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInput_2,
-            onInputChange = { viewModel.onInputChange_2(it) },
+            value = viewModel.letterInputTwo,
+            onInputChange = { viewModel.onInputChangeTwo(it) },
             textColor = textColorTwo,
             modifier = Modifier
                 .weight(1f)
@@ -99,8 +99,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInput_3,
-            onInputChange = { viewModel.onInputChange_3(it) },
+            value = viewModel.letterInputThree,
+            onInputChange = { viewModel.onInputChangeThree(it) },
             textColor = textColorThree,
             modifier = Modifier
                 .weight(1f)
@@ -109,8 +109,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInput_4,
-            onInputChange = { viewModel.onInputChange_4(it) },
+            value = viewModel.letterInputFour,
+            onInputChange = { viewModel.onInputChangeFour(it) },
             textColor = textColorFour,
             modifier = Modifier
                 .weight(1f)
@@ -119,8 +119,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInput_5,
-            onInputChange = { viewModel.onInputChange_5(it) },
+            value = viewModel.letterInputFive,
+            onInputChange = { viewModel.onInputChangeFive(it) },
             textColor = textColorFive,
             modifier = Modifier
                 .weight(1f)
