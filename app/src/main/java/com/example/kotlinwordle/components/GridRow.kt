@@ -23,9 +23,18 @@ import com.example.kotlinwordle.ui.theme.TileFilledText
 @Composable
 fun GridRow(
     viewModel: WordleViewModel,
+    rowIndex: Int,
     modifier: Modifier = Modifier
 ) {
     val wordToday = stringResource(id = viewModel.word.word)
+    val submittedGuess = viewModel.submittedGuesses.getOrNull(rowIndex)
+    val isActiveRow = rowIndex == viewModel.rowIndex && submittedGuess == null
+
+    val letter1 = submittedGuess?.get(0)?.toString() ?: if (isActiveRow) viewModel.letterInputOne else ""
+    val letter2 = submittedGuess?.get(1)?.toString() ?: if (isActiveRow) viewModel.letterInputTwo else ""
+    val letter3 = submittedGuess?.get(2)?.toString() ?: if (isActiveRow) viewModel.letterInputThree else ""
+    val letter4 = submittedGuess?.get(3)?.toString() ?: if (isActiveRow) viewModel.letterInputFour else ""
+    val letter5 = submittedGuess?.get(4)?.toString() ?: if (isActiveRow) viewModel.letterInputFive else ""
 
     var backgroundOne: Color = TileEmptyBackground
     var backgroundTwo: Color = TileEmptyBackground
@@ -38,31 +47,30 @@ fun GridRow(
     var textColorThree = TileEmptyText
     var textColorFour = TileEmptyText
     var textColorFive = TileEmptyText
-
-    if (viewModel.submitIsClicked) {
+    if (submittedGuess != null) {
         backgroundOne = when {
-            viewModel.letterInputOne == wordToday[0].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInputOne) -> PresentYellow
+            letter1 == wordToday[0].toString() -> CorrectGreen
+            wordToday.contains(letter1) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundTwo = when {
-            viewModel.letterInputTwo == wordToday[1].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInputTwo) -> PresentYellow
+            letter2 == wordToday[1].toString() -> CorrectGreen
+            wordToday.contains(letter2) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundThree = when {
-            viewModel.letterInputThree == wordToday[2].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInputThree) -> PresentYellow
+            letter3 == wordToday[2].toString() -> CorrectGreen
+            wordToday.contains(letter3) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundFour = when {
-            viewModel.letterInputFour == wordToday[3].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInputFour) -> PresentYellow
+            letter4 == wordToday[3].toString() -> CorrectGreen
+            wordToday.contains(letter4) -> PresentYellow
             else -> AbsentGrey
         }
         backgroundFive = when {
-            viewModel.letterInputFive == wordToday[4].toString() -> CorrectGreen
-            wordToday.contains(viewModel.letterInputFive) -> PresentYellow
+            letter5 == wordToday[4].toString() -> CorrectGreen
+            wordToday.contains(letter5) -> PresentYellow
             else -> AbsentGrey
         }
 
@@ -79,8 +87,8 @@ fun GridRow(
         modifier = modifier.fillMaxWidth()
     ) {
         Square(
-            value = viewModel.letterInputOne,
-            onInputChange = { viewModel.onInputChangeOne(it) },
+            value = letter1,
+            onInputChange = { if (isActiveRow) viewModel.onInputChangeOne(it) },
             textColor = textColorOne,
             modifier = Modifier
                 .weight(1f)
@@ -89,8 +97,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInputTwo,
-            onInputChange = { viewModel.onInputChangeTwo(it) },
+            value = letter2,
+            onInputChange = { if (isActiveRow) viewModel.onInputChangeTwo(it) },
             textColor = textColorTwo,
             modifier = Modifier
                 .weight(1f)
@@ -99,8 +107,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInputThree,
-            onInputChange = { viewModel.onInputChangeThree(it) },
+            value = letter3,
+            onInputChange = { if (isActiveRow) viewModel.onInputChangeThree(it) },
             textColor = textColorThree,
             modifier = Modifier
                 .weight(1f)
@@ -109,8 +117,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInputFour,
-            onInputChange = { viewModel.onInputChangeFour(it) },
+            value = letter4,
+            onInputChange = { if (isActiveRow) viewModel.onInputChangeFour(it) },
             textColor = textColorFour,
             modifier = Modifier
                 .weight(1f)
@@ -119,8 +127,8 @@ fun GridRow(
                 .border(1.dp, TileBorder)
         )
         Square(
-            value = viewModel.letterInputFive,
-            onInputChange = { viewModel.onInputChangeFive(it) },
+            value = letter5,
+            onInputChange = { if (isActiveRow) viewModel.onInputChangeFive(it) },
             textColor = textColorFive,
             modifier = Modifier
                 .weight(1f)

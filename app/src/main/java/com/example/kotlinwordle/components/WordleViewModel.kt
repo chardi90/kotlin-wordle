@@ -2,8 +2,10 @@ package com.example.kotlinwordle.components
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 
 class WordleViewModel: ViewModel() {
@@ -16,6 +18,9 @@ class WordleViewModel: ViewModel() {
         private set
 
     var hasWon by mutableStateOf(false)
+        private set
+
+    var submittedGuesses = mutableStateListOf<String>()
         private set
     var letterInputOne by mutableStateOf("")
         private set
@@ -71,21 +76,24 @@ class WordleViewModel: ViewModel() {
         playIsClicked = !playIsClicked
     }
 
-    fun submitRow() {
-        if (rowIndex < 6) {
-            rowIndex += 1
-            submitIsClicked = !submitIsClicked
-        } else {
-            rowIndex += 1
-            submitIsClicked = !submitIsClicked
-            finalScore = rowIndex
-            checkHasWon()
-        }
-    }
+    fun submitRow(actualWord: String) {
+        val guess = letterInputOne + letterInputTwo + letterInputThree + letterInputFour + letterInputFive
+        submittedGuesses.add(guess)
 
-    fun checkHasWon() {
-        if (finalScore <= 6) {
+        letterInputOne = ""
+        letterInputTwo = ""
+        letterInputThree = ""
+        letterInputFour = ""
+        letterInputFive = ""
+
+        rowIndex += 1
+        submitIsClicked = !submitIsClicked
+
+        if (guess == actualWord) {
             hasWon = true
+            finalScore = rowIndex
+        } else if (rowIndex >= 6) {
+            finalScore = rowIndex
         }
     }
 

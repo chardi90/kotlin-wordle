@@ -24,6 +24,7 @@ fun PuzzlePage(
     modifier: Modifier = Modifier
 ) {
     viewModel.setWord()
+    val wordToday = stringResource(id = viewModel.word.word)
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -36,8 +37,10 @@ fun PuzzlePage(
 
         Button(
             onClick = {
-                viewModel.submitRow()
-                onFinish()
+                viewModel.submitRow(wordToday)
+                if (viewModel.finalScore > 0) {
+                    onFinish()
+                }
             },
             modifier = Modifier.padding(top = 30.dp),
             colors = ButtonDefaults.buttonColors(
